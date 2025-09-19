@@ -14,7 +14,7 @@ jobs:
 
       - name: Mirror to backup remote
         env:
-          BACKUP_URL: ${{ secrets.BACKUP_URL }}
+  BACKUP_URL: ${{ secrets.BACKUP_REPO_URL }}
         run: |
           git remote set-url backup "$BACKUP_URL" || git remote add backup "$BACKUP_URL"
           git push --mirror backup
