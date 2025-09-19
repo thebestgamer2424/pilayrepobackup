@@ -16,5 +16,5 @@ jobs:
         env:
           BACKUP_URL: ${{ secrets.BACKUP_URL }}
         run: |
-          git remote add backup "$BACKUP_URL"
+          git remote set-url backup "$BACKUP_URL" || git remote add backup "$BACKUP_URL"
           git push --mirror backup
