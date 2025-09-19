@@ -2,7 +2,7 @@ name: Repo Backup
 
 on:
   schedule:
-    - cron: '0 2 * * *'   # Runs daily at 2:00 AM UTC
+    - cron: '52 5 * * *'   # Runs daily at 5:52 AM UTC
   workflow_dispatch:
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
 
       - name: Mirror to backup remote
         env:
-          BACKUP_URL: ${{ secrets.BACKUP_REPO_URL }}
+          BACKUP_URL: ${{ secrets.BACKUP_URL }}
         run: |
           git remote add backup "$BACKUP_URL"
           git push --mirror backup
